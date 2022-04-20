@@ -7,5 +7,5 @@ docker build --build-arg release=$release --build-arg version=$version --build-a
 
 # Copy files out of container.
 tmp=$(docker create terralang/llvm-build:$distro-$release-llvm$version)
-docker cp $tmp:/llvm/*.tar.xz .
+docker cp $tmp:/llvm/clang+llvm-$version-$triple.tar.xz .
 docker rm $tmp
