@@ -1,0 +1,22 @@
+name: CI
+on: [push]
+
+jobs:
+  mac:
+    name: Build (os=${{ matrix.os }}, llvm=${{ matrix.llvm }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ['ubuntu-latest', 'macos-10.15', 'windows-2022']
+        llvm: ['13.0.0']
+    steps:
+      - uses: actions/checkout@v1
+      - run: ./main.sh
+        shell: bash
+        env:
+          version: ${{ matrix.llvm }}
+          threads: 2
+      - uses: actions/upload-artifact@v2
+        with:
+          name: binary-tarball
+          path: clang+llvm-${{ matrix.llvm }}-${{ matrix.triple }}.*
