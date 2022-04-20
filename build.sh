@@ -26,7 +26,7 @@ if [[ $(uname) = MINGW* ]]; then
 fi
 cmake ../llvm-$version.src -DCMAKE_INSTALL_PREFIX=$PWD/../install -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_TERMINFO=OFF -DLLVM_ENABLE_LIBEDIT=OFF -DLLVM_ENABLE_ZLIB=OFF -DLLVM_ENABLE_ASSERTIONS=OFF
 if [[ $(uname) = MINGW* ]]; then
-    cmake --build . --target INSTALL --config Release
+    cmake --build . --target INSTALL --config Release -j${threads:-4}
 else
     make install -j${threads:-4}
 fi
