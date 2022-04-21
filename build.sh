@@ -25,7 +25,11 @@ if [[ $(uname) = MINGW* ]]; then
     export CMAKE_GENERATOR_TOOLSET="host=x64"
 fi
 cmake ../llvm-$version.src -DCMAKE_INSTALL_PREFIX=$PWD/../install -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_TERMINFO=OFF -DLLVM_ENABLE_LIBEDIT=OFF -DLLVM_ENABLE_ZLIB=OFF -DLLVM_ENABLE_ASSERTIONS=OFF
-cmake --build . --target INSTALL --config Release -j${threads:-4}
+if [[ $(uname) = MINGW* ]]; then
+    cmake --build . --target INSTALL --config Release -j${threads:-4}
+else
+    make install -j${threads:-4}
+fi
 cd ..
 rm -rf build llvm-$version.src* clang-$version.src*
 
