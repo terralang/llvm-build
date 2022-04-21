@@ -19,4 +19,6 @@ only dependency required to consume these binaries is
 
 The build infrastructure is designed to share as much as possible
 between the host OSes; this means for example that the Windows build
-uses bash (MINGW) rather than CMD or PowerShell.
+uses bash (MINGW) rather than CMD or PowerShell. Note that despite
+using bash for scripting, the build is still done with Visual Studio
+on Windows.
