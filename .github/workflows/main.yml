@@ -18,5 +18,5 @@ jobs:
           threads: 2
       - uses: actions/upload-artifact@v2
         with:
-          name: binary-tarball
-          path: clang+llvm-${{ matrix.llvm }}-*
+          name: clang+llvm-${{ matrix.llvm }}-${{ matrix.os }}
+          path: clang+llvm-${{ matrix.llvm }}-*.*
