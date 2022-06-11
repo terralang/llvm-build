@@ -10,7 +10,7 @@ Some details about the binaries and how they're built:
   * LLVM assertions: disabled
   * LLVM build configuration: release
   * Host OS: Windows, Mac, Linux (Ubuntu 18.04)
-  * Host Architecture: x86_64
+  * Host Architecture: x86_64; Linux only: arm64, ppc64le (emulated with qemu)
 
 These builds generally use minimal dependencies, which get in the way
 of making portable builds later. This means that e.g., on Ubuntu, the
