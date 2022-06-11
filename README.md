@@ -22,3 +22,14 @@ between the host OSes; this means for example that the Windows build
 uses bash (MINGW) rather than CMD or PowerShell. Note that despite
 using bash for scripting, the build is still done with Visual Studio
 on Windows.
+
+# Multiarch Builds
+
+Multiarch builds are unfortunately infeasible to do in GitHub Actions
+due to the 3-4&times; slowdown with emulation. These commands have to
+be run locally with each release:
+
+```bash
+triple=aarch64-linux-gnu arch=arm64 version=14.0.0 threads=20 ./main.sh
+triple=powerpc64le-linux-gnu arch=ppc64le version=14.0.0 threads=20 ./main.sh
+```

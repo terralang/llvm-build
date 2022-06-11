@@ -3,7 +3,7 @@
 set -e
 set -x
 
-curl -L -O https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/llvm-project-$version.src.tar.xz
+curl -L -O https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-project-$version.src.tar.xz
 uname
 if [[ $(uname) = MINGW* ]]; then
     7z x -y llvm-project-$version.src.tar.xz
