@@ -11,6 +11,13 @@ ENV DEBIAN_FRONTEND noninteractive
 COPY . /llvm
 
 RUN apt-get update -qq && \
-    apt-get install -qq build-essential git python3 curl cmake && \
+    apt-get install -qq build-essential git python3 curl libssl1.1 libssl-dev && \
+    curl -L -O https://github.com/Kitware/CMake/releases/download/v3.23.2/cmake-3.23.2.tar.gz && \
+    tar xf cmake-3.23.2.tar.gz && \
+    cd cmake-3.23.2 && \
+    ./configure && make install -j$threads && \
+    cd .. && \
+    rm cmake-3.23.2.tar.gz && \
+    apt-get autoremove -y libssl-dev && \
     cd /llvm && \
     ./build.sh

@@ -32,5 +32,10 @@ mv install clang+llvm-$version-$triple
 if [[ $(uname) = MINGW* ]]; then
     7z a -t7z clang+llvm-$version-$triple.7z clang+llvm-$version-$triple
 else
-    tar cfJv clang+llvm-$version-$triple.tar.xz clang+llvm-$version-$triple
+    if command -v xz &> /dev/null; then
+        tar cfv clang+llvm-$version-$triple.tar clang+llvm-$version-$triple
+        xz -T ${threads:-4} clang+llvm-$version-$triple.tar
+    else
+        tar cfJv clang+llvm-$version-$triple.tar.xz clang+llvm-$version-$triple
+    fi
 fi

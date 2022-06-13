@@ -19,14 +19,7 @@ fi
 if [[ $(uname) = Linux ]]; then
     # Build in a Docker container to ensure we minimize dependencies.
     export distro=ubuntu
-    if [[ -z $arch || $arch = arm64 ]]; then
-        export release=18.04
-        export variant=cmake # Need newer CMake. Get it from Kitware binaries.
-    else
-        # Kitware does not provide CMake builds for all platforms, so
-        # we need a newer Ubuntu to get the necessary CMake dependency.
-        export release=20.04
-    fi
+    export release=18.04
     ./docker_build.sh
 else
     ./build.sh
