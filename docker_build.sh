@@ -11,5 +11,5 @@ docker build ${arch:+--platform=}$arch --build-arg release=$release --build-arg 
 
 # Copy files out of container.
 tmp=$(docker create terralang/llvm-build:$distro-$release-llvm$version)
-docker cp $tmp:/llvm/clang+llvm-$version-$triple.tar.xz .
+docker cp $tmp:/llvm/clang+llvm-$version-$triple.tar.gz .
 docker rm $tmp

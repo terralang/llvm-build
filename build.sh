@@ -3,13 +3,13 @@
 set -e
 set -x
 
-curl -L -O https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-project-$version.src.tar.xz
+curl -L -O https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-project-$version.src.tar.gz
 uname
 if [[ $(uname) = MINGW* ]]; then
-    7z x -y llvm-project-$version.src.tar.xz
+    7z x -y llvm-project-$version.src.tar.gz
     7z x -y llvm-project-$version.src.tar
 else
-    tar xf llvm-project-$version.src.tar.xz
+    tar xf llvm-project-$version.src.tar.gz
 fi
 
 mkdir build install
@@ -32,10 +32,5 @@ mv install clang+llvm-$version-$triple
 if [[ $(uname) = MINGW* ]]; then
     7z a -t7z clang+llvm-$version-$triple.7z clang+llvm-$version-$triple
 else
-    if command -v xz &> /dev/null; then
-        tar cfv clang+llvm-$version-$triple.tar clang+llvm-$version-$triple
-        xz -T ${threads:-4} clang+llvm-$version-$triple.tar
-    else
-        tar cfJv clang+llvm-$version-$triple.tar.xz clang+llvm-$version-$triple
-    fi
+    tar cfzv clang+llvm-$version-$triple.tar.gz clang+llvm-$version-$triple
 fi
