@@ -3,13 +3,13 @@
 set -e
 set -x
 
-curl -L -O https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-project-$version.src.tar.gz
+curl -L -O https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-project-$version.src.tar.xz
 uname
 if [[ $(uname) = MINGW* ]]; then
-    7z x -y llvm-project-$version.src.tar.gz
+    7z x -y llvm-project-$version.src.tar.xz
     7z x -y llvm-project-$version.src.tar
 else
-    tar xf llvm-project-$version.src.tar.gz
+    tar xf llvm-project-$version.src.tar.xz
 fi
 
 mkdir build install
