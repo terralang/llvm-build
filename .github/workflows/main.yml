@@ -20,4 +20,3 @@ jobs:
         with:
           name: clang+llvm-${{ matrix.llvm }}-${{ matrix.os }}
           path: clang+llvm-${{ matrix.llvm }}-*.*
-    timeout-minutes: 360
