@@ -11,6 +11,7 @@ if [[ $(uname) = MINGW* ]]; then
 else
     tar xf llvm-project-$version.src.tar.xz
 fi
+rm llvm-project-$version.src.tar*
 
 mkdir build install
 cd build
