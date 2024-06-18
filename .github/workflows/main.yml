@@ -7,8 +7,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: ['ubuntu-latest', 'macos-11', 'windows-2022']
-        llvm: ['17.0.5']
+        os: ['ubuntu-latest', 'macos-12', 'windows-2022']
+        llvm: ['18.1.7']
     steps:
       - uses: actions/checkout@v3
       - run: ./main.sh
