@@ -14,7 +14,7 @@ fi
 rm llvm-project-$version.src.tar*
 
 cmake_flags=(
-    -DCMAKE_INSTALL_PREFIX="$PWD/../install"
+    -DCMAKE_INSTALL_PREFIX="$PWD/install"
     -DCMAKE_BUILD_TYPE=Release
     -DLLVM_ENABLE_TERMINFO=OFF
     -DLLVM_ENABLE_LIBEDIT=OFF
