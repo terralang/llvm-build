@@ -4,12 +4,13 @@ set -e
 set -x
 
 if [[ -z $triple ]]; then
+    arch=$(uname -m)
     if [[ $(uname) = Linux ]]; then
-        export triple=x86_64-linux-gnu
+        export triple=${arch}-linux-gnu
     elif [[ $(uname) = Darwin ]]; then
-        export triple=x86_64-apple-darwin
+        export triple=${arch}-apple-darwin
     elif [[ $(uname) = MINGW* ]]; then
-        export triple=x86_64-windows-msvc17
+        export triple=${arch}-windows-msvc17
     else
         echo "Don't recognize this platform."
         exit 1
