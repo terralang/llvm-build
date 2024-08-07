@@ -4,7 +4,7 @@ set -e
 set -x
 
 if [[ -z $triple ]]; then
-    arch=$(uname -m)
+    arch=$(uname -m | sed -e s/arm64/aarch64/)
     if [[ $(uname) = Linux ]]; then
         export triple=${arch}-linux-gnu
     elif [[ $(uname) = Darwin ]]; then
