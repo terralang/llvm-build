@@ -33,6 +33,6 @@ due to the 3-4&times; slowdown with emulation. These commands have to
 be run locally with each release:
 
 ```bash
-triple=aarch64-linux-gnu arch=arm64 version=19.1.7 threads=20 ./main.sh
+# triple=aarch64-linux-gnu arch=arm64 version=19.1.7 threads=20 ./main.sh
 triple=powerpc64le-linux-gnu arch=ppc64le version=19.1.7 threads=20 ./main.sh
 ```
