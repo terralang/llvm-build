@@ -12,8 +12,9 @@ Some details about the binaries and how they're built:
   * Host OS: Windows, Mac, Linux (Ubuntu 20.04)
   * Host Architecture:
       * Windows: x86_64
-      * macOS: x86_64 and ARM (M1)
-      * Linux: x86_64; arm64, ppc64le (emulated with qemu)
+      * macOS: x86_64 and arm64 (M1)
+      * Linux: x86_64 and arm64
+      * Linux: ppc64le (emulated with qemu)
 
 These builds generally use minimal dependencies, which get in the way
 of making portable builds later. This means that e.g., on Ubuntu, the
@@ -33,6 +34,5 @@ due to the 3-4&times; slowdown with emulation. These commands have to
 be run locally with each release:
 
 ```bash
-# triple=aarch64-linux-gnu arch=arm64 version=19.1.7 threads=20 ./main.sh
 triple=powerpc64le-linux-gnu arch=ppc64le version=19.1.7 threads=20 ./main.sh
 ```
