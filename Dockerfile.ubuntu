@@ -1,8 +1,8 @@
-ARG release=18.04
+ARG release=20.04
 
 FROM ubuntu:$release
 
-ARG version=6.0
+ARG version=19.0
 ARG triple=unknown-unknown-unknown
 ARG threads=4
 

@@ -9,7 +9,7 @@ Some details about the binaries and how they're built:
   * Included LLVM backends: all
   * LLVM assertions: disabled
   * LLVM build configuration: release
-  * Host OS: Windows, Mac, Linux (Ubuntu 18.04)
+  * Host OS: Windows, Mac, Linux (Ubuntu 20.04)
   * Host Architecture:
       * Windows: x86_64
       * macOS: x86_64 and ARM (M1)

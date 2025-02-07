@@ -20,7 +20,7 @@ fi
 if [[ $(uname) = Linux ]]; then
     # Build in a Docker container to ensure we minimize dependencies.
     export distro=ubuntu
-    export release=18.04
+    export release=20.04
     ./docker_build.sh
 else
     ./build.sh
