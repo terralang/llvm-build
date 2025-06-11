@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         os: ['ubuntu-latest', 'ubuntu-24.04-arm', 'macos-13', 'macos-14', 'windows-2022']
-        llvm: ['12.0.1']
+        llvm: ['11.1.0']
     steps:
       - uses: actions/checkout@v4
       - run: ./main.sh
