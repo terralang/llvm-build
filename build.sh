@@ -7,7 +7,7 @@ curl -L -O https://github.com/llvm/llvm-project/releases/download/llvmorg-$versi
 uname
 if [[ $(uname) = MINGW* ]]; then
     7z x -y llvm-project-$version.src.tar.xz
-    7z x -y llvm-project-$version.src.tar
+    7z x -snld -y llvm-project-$version.src.tar
 else
     tar xf llvm-project-$version.src.tar.xz
 fi
