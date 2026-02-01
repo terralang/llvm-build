@@ -1,0 +1,23 @@
+diff --git a/clang/utils/TableGen/ClangAttrEmitter.cpp b/clang/utils/TableGen/ClangAttrEmitter.cpp
+index 1342e1a6ffb5..1f8842ac9f02 100644
+--- a/clang/utils/TableGen/ClangAttrEmitter.cpp
++++ b/clang/utils/TableGen/ClangAttrEmitter.cpp
+@@ -2736,10 +2736,15 @@ static void emitAttributes(const RecordKeeper &Records, raw_ostream &OS,
+         HLSLSemantic = true;
+     }
+ 
+-    if (Header)
+-      OS << "class CLANG_ABI " << R.getName() << "Attr : public " << SuperName
++    if (Header) {
++      // On Windows, CLANG_ABI causes issues with inline methods in plugins
++      OS << "class "
++         << "#ifndef _WIN32\n"
++         << "CLANG_ABI "
++         << "#endif\n"
++         << R.getName() << "Attr : public " << SuperName
+          << " {\n";
+-    else
++    } else
+       OS << "\n// " << R.getName() << "Attr implementation\n\n";
+ 
+     std::vector<const Record *> ArgRecords = R.getValueAsListOfDefs("Args");
