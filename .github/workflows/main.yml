@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         os: ['windows-2022']
-        llvm: ['21.1.8']
+        llvm: ['20.1.8']
     steps:
       - uses: actions/checkout@v4
       - run: ./main.sh
