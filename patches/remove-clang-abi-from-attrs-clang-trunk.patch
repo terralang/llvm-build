@@ -10,9 +10,9 @@ index 1342e1a6ffb5..1f8842ac9f02 100644
 -      OS << "class CLANG_ABI " << R.getName() << "Attr : public " << SuperName
 +    if (Header) {
 +      // On Windows, CLANG_ABI causes issues with inline methods in plugins
-+      OS << "class "
++      OS << "class\n"
 +         << "#ifndef _WIN32\n"
-+         << "CLANG_ABI "
++         << "CLANG_ABI\n"
 +         << "#endif\n"
 +         << R.getName() << "Attr : public " << SuperName
           << " {\n";
