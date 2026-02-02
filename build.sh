@@ -8,6 +8,8 @@ uname
 if [[ $(uname) = MINGW* ]]; then
     7z x -y llvm-project-$version.src.tar.xz
     7z x -snld -y llvm-project-$version.src.tar
+    # FIXME: workaround for https://github.com/llvm/llvm-project/issues/163349
+    patch -d llvm-project-$version.src -p1 < patches/remove-clang-abi-from-attrs-clang-trunk.patch
 else
     tar xf llvm-project-$version.src.tar.xz
 fi
